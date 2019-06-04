@@ -1,0 +1,167 @@
+{% load static %}
+<html>
+<head>
+<title>signup</title>
+	<script>
+		var x;
+		function disp(str)
+		{
+		   x=new XMLHttpRequest();
+		   x.open("GET","email?email="+str,true);
+		   x.onreadystatechange=dispres;
+		   x.send(null);
+		}
+		function dispres()
+		{
+		   if(x.readyState==4)
+		   {
+		      document.getElementById("lst").innerHTML=x.responseText;
+		      }
+		}
+		function disp1(s)
+		{
+		   document.getElementById("email").value=s;
+		   document.getElementById("lst").innerHTML="";
+		}
+		function validate()
+		{
+		   var x=document.forms["signup"]["email"].value;
+		   if(x=="")
+		   {
+		      alert("* email should be filled out");
+		      return false;
+		   }
+		   return true;
+		}
+	</script>
+<link rel="stylesheet" type="text/css" href="{% static 'web/style.css' %}">
+<style>
+    input[type=text] 
+{
+width:100%;
+
+padding:3px 2px;
+border:1px solid white;
+box-shadow:2px 2px 2px 2px;
+border-radius:6px;
+
+}
+#select
+{
+width:100%;
+padding:3px 2px;
+border:1px solid white;
+box-shadow:2px 2px 2px 2px;
+border-radius:6px;
+}
+input[type=password] 
+{
+width:100%;
+padding:3px 2px;
+border:1px solid white;
+box-shadow:2px 2px 2px 2px;
+border-radius:6px;
+}
+input[type=email] 
+{
+width:100%;
+padding:3px 2px;
+border:1px solid white;
+box-shadow:2px 2px 2px 2px;
+border-radius:6px;
+}
+input[type=date] 
+{
+width:100%;
+padding:3px 2px;
+border:1px solid white;
+box-shadow:2px 2px 2px 2px;
+border-radius:6px;
+}
+input[type=textarea] 
+{
+width:100%;
+padding:3px 2px;
+border:1px solid white;
+box-shadow:2px 2px 2px 2px;
+border-radius:6px;
+}
+
+ input[type=submit] 
+{
+background-color: #f92c37;
+color:white;
+width:20%;
+padding:7px 3px;
+border:none;
+border-radius:8px;
+shadow-color:green;
+font-size:20px;
+}
+</style>
+</head>
+<body>
+<img src="{% static 'web/main.jpg' %}"  width="1400px" height="700px" style="opacity:0.3;"/>
+<div class="loginbox">
+<img src="{% static 'web/sssss.png' %}" class="avatar">
+<h1>
+	{{u}}
+</h1>
+<form action="">
+<table style="width:100%;position:absolute;top:95px;left:5px;"cellspacing="3"cellpadding="5">
+		 <tr>
+		   <td style="color:white;font-weight:bold;">Date of birth</td>
+		   <td><input type="text" name="dob"></td>
+		 </tr>
+		 <tr>
+		   <td style="color:white;font-weight:bold;">Course</td>
+		   <td>
+		   <select id="select" name="course" value="">
+		   <option>choose your course</option>
+		   <option> B.tech</option>
+		   <option> B.pharm</option>
+		   <option> MCA</option>
+		   <option> M.tech</option>
+		   <option>MBA</option>
+		   </select>
+		   </td>
+		 </tr>
+		
+		 <tr>
+		   <td style="color:white;font-weight:bold;">Address</td>
+		   <td>
+		     <input type="textarea" name="address">
+		   </td>
+		 </tr>
+		 
+		 <tr>
+		    <td style="color:white;font-weight:bold;">Email Address</td>
+			<td><input type="email" name="email" required></td>
+		 </tr>
+		<tr>
+		
+           <center><td><input type="submit" name="signup" value="signup"></td></center>
+        </tr>
+
+</table>
+</form>
+
+</div>
+<script>
+	function opentab(tabname)
+	 {
+	    if(tabname=="signup")
+	     {
+	       document.getElementById("login").style.display="none";
+	       document.getElementById("signup").style.display="block";
+	    }
+	     else if(tabname=="login")
+	    {
+	       document.getElementById("signup").style.display="none";
+	       document.getElementById("login").style.display="block";
+	    }
+	 }
+ </script>
+</body>
+
+</html>

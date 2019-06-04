@@ -1,0 +1,19 @@
+#menu ul
+{
+   padding-top:10px;
+}
+#menu  ul li
+{
+    display:inline;
+    
+}
+#menu ul li a
+{
+    text-decoration: none;
+    font-size: 80%;
+    color:white;
+    font-family:georgia;
+}
+#menu ul li a:hover{
+    text-decoration:underline;background-color:blue;font-size:30px;
+}

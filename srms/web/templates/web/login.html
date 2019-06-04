@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+<head>
+<title>login</title>
+<link rel="stylesheet" type="text/css" href="{% static 'web/style.css' %}">
+</head>
+<body>
+<img src="{% static 'web/main.jpg' %}"  width="1400px" height="700px" style="opacity:0.3;"/>
+<div class="loginbox">
+<img src="{% static 'web/sssss.png' %}" class="avatar">
+<h1>login here </h1>
+<form method="POST">
+	{% csrf_token %}
+          {{form.as_p}}
+	<button type="submit">Login</button>
+</form>
+<a href="#">Lost Your password </a><br>
+<a href="{% url 'register' %}"> Don't have an account </a>
+</form>
+</div>
+</body>
+
+</html>

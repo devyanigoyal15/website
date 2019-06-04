@@ -1,0 +1,123 @@
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.r1{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+/*tr:nth-child(even){background-color: #f2f2f2}*/
+.a{
+  font-style: bold;
+  font-size: 20px;
+}
+.b{
+  font-size: 20px;
+  font-style: bold;
+  box-shadow: 2px  black;
+}
+
+</style>
+</head>
+<div class="r1">
+<body background="{% static 'web/rr.jpg' %}">
+<div class="b">
+<h2><marquee behavior="alternate"> SINGLE SEATER</marquee></h2></div>
+<div>
+  <table>
+    <tr>
+     <th><u>No. of rooms</u> </th>
+      <th><u>No.of Rooms left</u></th>
+      <th><u>No.of Rooms booked</u></th>
+      <th><u>Things provided in the room</u></th>
+      <th><u>Room view 360</u></th>
+      <th><u>Booking details</u></th>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>{{ss.left}}</td>
+      <td>{{ss.id}}</td>
+      <td>1 tubelight<br>
+          1 fan<br>
+          1 table 1 chair<br>
+          1 cupboard<br>
+          2 switchboard</td>
+      <td><a href=" link">room view</a></td>
+        <td><form action="sbook"><input type="submit" value="Book Now"></form>
+    </tr>
+  </table>
+</div>
+<div class="b">
+<h2><marquee behavior="alternate">DOUBLE SEATER</marquee></h2></div>
+<div class="a"> In this their will be two person sharing room.</div>
+<div>
+  <table>
+    <tr>
+      <th><u>No. of rooms</u> </th>
+      <th><u>No.of Beds</u></th>
+      <th><u>No.of beds booked</u></th>
+      <th><u>No.of beds left</u></th>
+      <th><u>Things provided in the room</u></th>
+      <th><u>Room view 360</u></th>
+      <th><u>Booking details</u></th>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>80</td>
+      <td>{{dd.id}}</td>
+      <td>{{dd.left}}</td>
+      <td>2 tubelight<br>
+          2 fan<br>
+          2 table 1 chair<br>
+          2 cupboard<br>
+          2 switchboard</td>
+      <td><a href=" link">room view</a></td>
+      <td><form action="dbook"><input type="submit" value="Book Now"></form>
+    </tr>
+  </table>
+</div>
+<div class="b">
+<h2><marquee behavior="alternate">TRILE SEATER</marquee></h2></div>
+<div class="a"> In this their will be three person sharing room.</div>
+
+<div>
+  <table>
+    <tr>
+      <th><u>No. of rooms</u> </th>
+      <th><u>No.of Beds</u></th>
+       <th><u>No.of beds booked</u></th>
+      <th><u>No.of beds left</u></th>
+      <th><u>Things provided in the room</u></th>
+      <th><u>Room view 360</u></th>
+      <th><u>Booking details</u></th>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>120</td>
+      <td>{{tt.id}}</td>
+      <td>{{tt.left}}</td>
+      <td>3 tubelight<br>
+          3 fan<br>
+          3 table 3 chair<br>
+          3 cupboard<br>
+          3 switchboard</td>
+      <td><a href=" link">room view</a></td>
+      <td><form action="tbook"><input type="submit" value="Book Now"></form>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

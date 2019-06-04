@@ -1,0 +1,117 @@
+{% load static %}
+<html>
+<head>
+<title>HTML Table</title>
+ 
+<style>
+.a11
+	{
+	font-size: 25px;
+	font-style: bold;
+}
+.c{
+	font-size: 30px;
+	font-style: italic;
+	text-shadow: 2px 2px black;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+.a{
+  font-size: 20px;
+  font-style: bold;
+}
+
+.a1{
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  background-image: url("{% static 'web/s.jpg' %}");
+}
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+</style>
+ 
+<body align="center" background="{% static 'web/i1.jpeg' %}">
+	
+ 
+<form action="send" method="get">
+
+    <p class="c">
+<h2 align="left"><u>LEAVE STATUS</u></h2><br></p>
+<div class="split left">
+<p class="a11"><br><br>
+ 
+<label>Name</label>&nbsp&nbsp&nbsp<input type="text" name="name" id="fn1" maxlength="10" title="enter your first name" placeholder="enter your name" required/><br><br>
+ <label>Heading</label>&nbsp&nbsp&nbsp<input type="text" name="heading" maxlength="500"><br><br>
+<label>Reason for leave</label>&nbsp&nbsp&nbsp<input type="text" name="reason" maxlength="500"><br><br>
+<label>Starting date</label>&nbsp&nbsp&nbsp<input type="text" name="df"/><br><br>
+<label>ending date date</label>&nbsp&nbsp&nbsp<input type="text" name="dt"/><br><br>
+<label>Enter your address</label>&nbsp&nbsp&nbsp <input type="text" name="address" id="fn2" maxlength="50"><br><br>
+<label>Roll No.</label>&nbsp&nbsp<input type="text" name="rno"/><br><br>
+<input type="submit" value="Save My Data"/><br><br>
+</p>
+</div>
+</form>
+<div class="split right">
+<div class="a">
+<h2></u>STATUS OF LEAVE</u></h2><br>
+  <table>
+    <tr>
+      <th>name</th>
+      <th>heading</th>
+      <th>reason</th>
+      <th>Date(from-to)</th>
+      <th>Leave Status</th>
+    </tr>
+     {% for i in leave %}
+    <tr>
+      <th>{{i.name}}</th>
+      <th>{{i.heading}}</th>
+      <th>{{i.reason}}</th>
+      <th>{{i.df}}-{{i.dt}}</th>
+      <th>
+          {% if i.status == 0 %}
+                         Pending
+                    {%endif%}
+                     {% if i.status == 1 %}
+                         Accepted
+                    {%endif%}
+                    {% if i.status == 2 %}
+                         Rejected
+                    {%endif%}
+      </th>
+    </tr>
+    {% endfor %}
+    </table>
+    <div class="a1">
+
+  </div>
+ </div>
+</div>
+</body>
+ 
+</html>

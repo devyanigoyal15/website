@@ -1,0 +1,84 @@
+{{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {/*font-family: Arial, Helvetica, sans-serif;*/
+background-attachment: fixed;
+background: url("{% static 'web/d1.jpg' %}");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+   border-radius: 50%;
+   width: 10%px;
+   height: 20%px;
+
+}
+
+.container {
+  padding: 30px;
+  font-family: bold;
+}
+.h{
+  font-size: 20px;
+  font-style: bold;
+}
+</style>
+</head>
+<body>
+<div class ="h">
+  <h2 align="center"><u>WARDEN DASHBOARD</u></h2>
+  <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  <a href="{% url 'logout' %}" style="color:black;">Logout</a>
+    <br></h3></div>
+  <div class="imgcontainer">
+    <img src="{% static 'web/l1.png' %}" alt="l1">
+  </div>
+
+  <div class="container" align="center">
+    <table>
+    <tr>
+      <th><button class="btn">&nbsp&nbspStudent email&nbsp&nbsp&nbsp&nbsp</button></th>
+      <th><button class="btn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspReason for leave&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button></th>
+      <th><button class="btn">Date from</button></th>
+      <th><button class="btn">Date to</button></th>
+      <th><button class="btn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Status for leave &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button></th>
+    </tr>
+      {% for i in leave %}
+    <tr>
+      <th>&nbsp&nbsp{{i.sender}}&nbsp&nbsp&nbsp&nbsp</th>
+      <th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{i.reason}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+      <th>{{i.df}}</th>
+      <th>{{i.dt}}</th>
+      <th>&nbsp&nbsp&nbsp&nbsp
+				    <a href="acc/?id={{i.id}}">Accept</a>
+				    <a href="rej/?id={{i.id}}">Reject</a>
+				    {{acc}}</br>
+			    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+    </tr>
+      {% endfor %}
+    </table></div><br><br><br><br><br><br>
+
+</body>
+</html>
